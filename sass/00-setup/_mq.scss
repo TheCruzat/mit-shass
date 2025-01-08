@@ -1,0 +1,29 @@
+
+
+@mixin bigger-than($size: 'large') {
+	@if $size == 'small' {
+		@media (min-width: $bp-sm) { @content; }
+	} @else if $size == 'medium' {
+		@media (min-width: $bp-md) { @content; }
+	} @else if $size == 'large' {
+		@media (min-width: $bp-lg) { @content; }
+	} @else if $size == 'xl' {
+		@media (min-width: $bp-xl) { @content; }
+	} @else {
+		@media (min-width: $size) { @content; }
+	}
+}
+
+@mixin smaller-than($size: 'large') {
+	@if $size == 'small' {
+		@media (max-width: $bp-sm) { @content; }
+	} @else if $size == 'medium' {
+		@media (max-width: $bp-md) { @content; }
+	} @else if $size == 'large' {
+		@media (max-width: $bp-lg) { @content; }
+	} @else if $size == 'xl' {
+		@media (max-width: $bp-xl) { @content; }
+	} @else {
+		@media (max-width: $size) { @content; }
+	}
+}

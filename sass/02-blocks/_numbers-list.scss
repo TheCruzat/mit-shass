@@ -1,0 +1,60 @@
+@use '../00-setup' as *;
+
+.numbers-list {
+	&--columns {
+
+		@include bigger-than('medium') {
+			display: flex;
+
+			>div {
+				width: 50%;
+				flex-grow: 1;
+				flex-basis: 1;
+			}
+		}
+
+		>div:first-child {
+			@include smaller-than('medium') {
+				margin-bottom: 3rem;
+			}
+		}
+	}
+	h2.header {
+		font-size: var(--title1);
+		margin-bottom: 3rem;
+
+		@include bigger-than('medium') {
+			margin-bottom: 4.5rem;
+		}
+
+		@include bigger-than('large') {
+			margin-bottom: 6rem;
+		}
+	}
+	h3.header {
+		font-size: var(--header1);
+		margin-bottom: 1.75rem;
+
+		@include bigger-than('medium') {
+			font-size: var(--title2);
+			margin-bottom: 4.5rem;
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0; padding: 0;
+	}
+	li {
+		font-size: var(--copyLarger);
+		color: $dark-gray;
+
+		&:not(:last-of-type) {
+			margin-bottom: 1rem;
+		}
+
+		span {
+			color: $bright-purple;
+			font-weight: 600;
+		}
+	}
+}

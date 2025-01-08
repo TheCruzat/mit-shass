@@ -1,0 +1,229 @@
+@use '../00-setup' as *;
+
+.jump-links {
+
+	@include bigger-than('medium') {
+		padding: 3rem 0;
+	}
+
+	@include bigger-than('large') {
+		padding: 4rem 0;
+	}
+
+	@include bigger-than('xl') {
+		padding: 5rem 0;
+	}
+
+	.block-content {
+		padding: 1.5rem 0;
+		@include bigger-than('medium') {
+			// padding: 1.5rem 0 1.5rem 2.25rem;
+		}
+		@include bigger-than('large') {
+			margin-left: var(--rails);
+			margin-right: 3.75rem; // calc(#{var(--rails)} / 2);
+		}
+		@include bigger-than('xl') {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			width: calc(100% - 18rem); // 100%;
+			padding-top: 0; padding-bottom: 0;
+			margin-right: unset;
+
+			> .jump-links--quote {
+				max-width: var(--sidebar-w);
+			}
+		}
+	}
+
+	&--row {
+		font-weight: 600;
+
+		@include smaller-than('medium') {
+			padding: 1rem 0;
+			padding-left: 1.5rem;
+			overflow: auto; white-space: nowrap;
+		}
+		@include bigger-than('medium') {
+
+			padding: 1.5rem 0 1.5rem 2.25rem;
+			margin-left: 3rem;
+			margin-bottom: 3rem;
+			position: relative;
+			background: $white;
+			z-index: 2;
+
+			&:before, &:after {
+				display: block;
+				content: "";
+				background: $ui-gray;
+				height: 1px;
+				width: auto;
+				left: 0.5rem;
+				right: 0;
+				position: absolute;
+			}
+
+			&:before {
+				top: 0rem;
+			}
+
+			&:after {
+				bottom: 0rem;
+			}
+		}
+
+		@include bigger-than('large') {
+			margin-left: 0; // 7rem;
+			margin-right: 0;
+			width: auto;
+			display: inline-block;
+		}
+
+		> span:first-child {
+			display: inline-block;
+			margin-right: 2rem;
+
+			@include smaller-than('large') {
+				display: none;
+			}
+		}
+
+		a {
+			display: inline-block;
+			margin-right: 2rem;
+			text-decoration: none;
+			color: $dark-gray;
+			font-size: 0.875rem;
+			position: relative;
+			text-decoration: none;
+			border-bottom: none!important;
+			transition: color $trans-out;
+
+			&.sel {
+				color: $black;
+
+				&:after {
+					display: block;
+					content: "";
+					width: 100%;
+					position: absolute;
+					bottom: -0.5rem;
+					left: 0;
+					height: 3px;
+					background: $bright-purple;
+
+					@include bigger-than('medium') {
+						height: 2px;
+						bottom: -1.5rem;
+						z-index: 2;
+					}
+				}
+			}
+
+			&:hover {
+				color: $black;
+				transition: color $trans-in;
+			}
+
+			@include bigger-than('medium') {
+				font-size: 1rem;
+			}
+
+			span {
+				display: inline-block;
+				margin-right: 0.5rem;
+
+				@include smaller-than('medium') {
+					display: none;
+				}
+			}
+		}
+	}
+
+
+
+	&.has-quote {
+		.jump-links--row {
+			@include smaller-than('large') {
+				margin-bottom: 3.5rem;
+			}
+			@include smaller-than('medium') {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	&--quote {
+
+		padding: 0 3rem; // 1.5rem;
+		max-width: 640px;
+
+		@include bigger-than('medium') {
+			// margin-left: 6rem; // calc(50% - 1.125rem);
+			padding: 0 0 0 6rem;
+			// max-width: var(--content-w);
+		}
+
+		@include bigger-than('large') {
+			// margin-left: 50%;
+			max-width: unset;
+			padding-right: calc( 2 * #{var(--rails)});
+			padding-left: 0;
+		}
+
+		@include bigger-than('xl') {
+			//padding: 2rem 6.5rem 2rem 4rem;
+			// padding-top: 3rem; padding-bottom: 3rem;
+			margin-left: 0;
+			padding-right: 0;
+		}
+
+		svg {
+			width: 2rem;
+			height: auto;
+			margin-bottom: 1rem;
+			@include bigger-than('large') {
+				width: 50px;
+			}
+		}
+
+		.header {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+			line-height: 1.2;
+
+			@include bigger-than('medium') {
+				font-size: 1.5rem;
+			}
+
+			@include bigger-than('large') {
+				font-size: 2rem;
+				// max-width: 75%;
+			}
+
+			@include bigger-than('xl') {
+				font-size: 2rem;
+				max-width: unset; // var(--content-w);
+			}
+		}
+
+		.quote-block--meta {
+			// @include bigger-than('xl') {
+			display: inline-block;
+			text-align: right;
+			margin-bottom: 2rem;
+
+			@include bigger-than('large') {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&.sideline:before {
+		@include smaller-than('medium') {
+			display: none;
+		}
+	}
+}

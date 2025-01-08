@@ -1,0 +1,50 @@
+{
+    "key": "group_66982ec3840b6",
+    "title": "CPT - People - Graduation Year",
+    "fields": [
+        {
+            "key": "field_66982ec3c6dd0",
+            "label": "Graduation Year",
+            "name": "associated_year",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "people-categories:alumni"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1721254366
+}

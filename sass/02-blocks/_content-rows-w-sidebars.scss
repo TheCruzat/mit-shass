@@ -1,0 +1,104 @@
+@use '../00-setup' as *;
+
+.content-rows-w-sidebars {
+	h2.header {
+		font-size: var(--title1);
+		margin-bottom: 2rem;
+
+		@include bigger-than('large') {
+			margin-bottom: 3rem;
+		}
+
+		@include bigger-than('xl') {
+			margin-bottom: 4rem;
+		}
+	}
+
+	.intro {
+		margin-bottom: 2rem;
+
+		@include bigger-than('large') {
+			margin-bottom: 3rem;
+		}
+
+		@include bigger-than('xl') {
+			margin-bottom: 4rem;
+		}
+	}
+
+	h2.header, .intro {
+		@include bigger-than('large') {
+			max-width: var(--content-w);
+		}
+	}
+	.content-row {
+
+		font-size: var(--copyLarge);
+		line-height: 1.8;
+
+		@include bigger-than('large') {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.content {
+			width: var(--content-w);
+
+			@include smaller-than('large') {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.sidebar {
+			width: var(--sidebar-w);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: var(--row-gap);
+
+			@include bigger-than('large') {
+				// margin-bottom: 3rem;
+			}
+
+			@include bigger-than('xl') {
+				// margin-bottom: 5.5rem;
+			}
+		}
+
+		.cr-shortrow &:not(:last-child) {
+
+		}
+	}
+
+	&.cr-shortrow {
+		.content-row:not(:last-child) {
+			margin-bottom: calc( #{var(--row-gap)} / 2 );
+		}
+
+		.link-list li:not(:last-child) {
+		    margin-bottom: 0.25rem;
+		}
+	}
+
+	&.cr-halves {
+		.content-row {
+			.content, .sidebar {
+				width: calc(50% - 2rem);
+			}
+		}
+	}
+
+	&.cr-narrow {
+		.content-row {
+			.sidebar {
+				width: 60%;
+			}
+			.content {
+				width: calc(45% - 2rem);
+				@include smaller-than('large') {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
+}

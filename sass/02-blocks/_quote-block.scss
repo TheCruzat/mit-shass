@@ -1,0 +1,176 @@
+@use '../00-setup' as *;
+
+.quote-block {
+
+	// padding-bottom: 3rem;
+
+	@include bigger-than('medium') {
+		// padding-bottom: 4.5rem;
+	}
+
+	@include bigger-than('large') {
+		position: relative;
+		padding-bottom: 9rem;
+	}
+
+	&--bg {
+		border-radius: 0 0.5rem 0 0;
+		height: 290px;
+		display: block;
+		overflow: hidden;
+		width: calc(100% - 1.5rem);
+		margin-bottom: -2rem;
+		object-fit: cover;
+		z-index: 0;
+		position: relative;
+
+		@include bigger-than('medium') {
+			height: 493px;
+			width: 56.25%;
+			margin-bottom: -14rem;
+		}
+
+		@include bigger-than('large') {
+			width: 60%;
+			height: 820px;
+			margin-bottom: 0;
+		}
+	}
+
+	&.quote-left &--bg {
+		border-radius: 0.5rem 0 0 0;
+
+		@include bigger-than('medium') {
+			margin-left: 43.75%;
+		}
+
+		@include bigger-than('large') {
+			margin-left: 45%;
+			width: 55%;
+		}
+	}
+
+	&--meta {
+		padding-left: 3rem;
+		position: relative;
+
+		&:before {
+			display: block;
+			content: "";
+			height: 1px;
+			background: $black;
+			width: 1.5rem;
+			position: absolute;
+			top: 0.75rem;
+			left: 1rem;
+
+			@include bigger-than('medium') {
+				left: 2rem;
+			}
+		}
+
+		@include bigger-than('medium') {
+			padding-left: 4rem;
+		}
+	}
+
+	&--name {
+		margin-bottom: 0.25rem;
+
+	}
+
+	&--role {
+		color: $dark-gray;
+	}
+
+	&.quote-left .block-content {
+		padding-right: calc(#{var(--rails)} / 2);
+		margin-right: calc(#{var(--rails)} / 2);
+
+		@include bigger-than('medium') {
+			margin-right: 43.75%;
+			padding: 2.75rem 3rem 2.75rem calc( #{var(--rails)} - 1rem );
+			border-radius: 0 0 0.5rem 0;
+			margin-left: unset;
+		}
+
+		@include bigger-than('large') {
+			width: 50%; // var(--content-w);
+			margin-right: 0;
+			position: absolute; bottom: auto; top: 0; left: 0; right: auto; // right: calc(100% - #{var(--content-w)}); left: unset;
+			// padding-bottom: 9rem;
+			padding-left: var(--rails);
+		}
+	}
+
+	.block-content {
+		background: $white;
+		padding-top: 1.5rem;
+		padding-left: calc(#{var(--rails)} / 2);
+		margin-left: calc(#{var(--rails)} / 2);
+		border-radius: 0.5rem 0 0 0;
+		padding-bottom: 3rem;
+
+		@include bigger-than('medium') {
+			width: 56.25%;
+			margin-left: 43.75%;
+			padding: 2.75rem var(--rails) 2.75rem 3rem;
+			padding-bottom: 5rem;
+		}
+
+		@include bigger-than('large') {
+			width: var(--content-w);
+			margin-left: 0;
+			position: absolute; bottom: 0; left: calc(100% - #{var(--content-w)});
+			padding-bottom: 9rem;
+		}
+
+		&.sideline:before {
+			left: 0;
+			top: 2rem;
+			@include bigger-than('medium') {
+				display: none;
+			}
+		}
+
+		svg {
+			width: 2rem;
+			height: auto;
+			margin-bottom: 1rem;
+			@include bigger-than('medium') {
+				width: 50px;
+			}
+		}
+
+		.header {
+			font-size: 1.25rem;
+			margin-bottom: 1.5rem;
+			line-height: 1.2;
+
+			@include bigger-than('medium') {
+				font-size: 1.5rem;
+			}
+
+			@include bigger-than('large') {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	@include smaller-than('medium') {
+		&.sideline:before {
+			display: none;
+		}
+	}
+	@include bigger-than('medium') {
+		&.sideline:before {
+			z-index: 0;
+		}
+	}
+
+	@include bigger-than('medium') {
+		&.quote-left.sideline:before {
+			z-index: 3;
+		}
+	}
+}

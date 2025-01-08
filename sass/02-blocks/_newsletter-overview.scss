@@ -1,0 +1,20 @@
+@use '../00-setup' as *;
+
+.newsletter.news-overview {
+	.newsletter-signup {
+		padding-left: 0; padding-right: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	.news-overview--share-a-story:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+	.news-overview--news-cards {
+		// padding-bottom: 3rem;
+		// border-bottom: 1px solid $ui-gray;
+	}
+	.post-cards-pagination {
+		border-top: 1px solid $ui-gray;
+		padding-top: 3rem;
+	}
+}

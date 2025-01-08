@@ -1,0 +1,88 @@
+@use '../00-setup' as *;
+
+.timeline {
+	h2.header {
+		font-size: var(--title1);
+		margin-bottom: 2rem;
+
+		@include bigger-than('medium') {
+			margin-bottom: 4rem;
+		}
+	}
+
+	&-rows {
+		@include bigger-than('large') {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			max-width: var(--content-w);
+		}
+	}
+
+	&-row {
+		display: inline-grid;
+		grid-template-columns: 110px 1fr;
+		font-size: var(--copyLarge);
+		// border-bottom: 1px solid $ui-gray;
+		padding: 2rem 0;
+		position: relative;
+		width: 100%;
+
+		&:after {
+			display: block;
+			content: "";
+			height: 1px;
+			width: auto;
+			position: absolute; top: 0; left: -1.5rem; right: 0;
+			background: $ui-gray;
+
+			@include bigger-than('medium') {
+				left: -2.5rem;
+			}
+			@include bigger-than('large') {
+				left: -3.5rem;
+			}
+			@include bigger-than('xl') {
+				left: -6rem;
+			}
+		}
+
+		&:last-of-type:before {
+			display: none; // block;
+			content: "";
+			height: 1px;
+			width: auto;
+			position: absolute; bottom: 0; left: -1.5rem; right: 0;
+			background: $ui-gray;
+
+			@include bigger-than('medium') {
+				left: -2.5rem;
+			}
+			@include bigger-than('large') {
+				left: -3.5rem;
+			}
+			@include bigger-than('xl') {
+				left: -6rem;
+			}
+		}
+
+		ul {
+			list-style: none;
+			padding: 0; margin: 0;
+
+			li:not(:last-of-type) {
+				margin-bottom: 1.25rem;
+			}
+		}
+
+		>div:first-child, ul li span {
+			font-weight: 600;
+		}
+
+		a {
+			color: $black;
+			text-decoration: none;
+			border-bottom: 1px solid $ui-gray;
+		}
+	}
+}

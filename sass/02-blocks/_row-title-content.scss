@@ -1,0 +1,49 @@
+@use '../00-setup' as *;
+
+.row-title-content {
+	font-size: 1.25rem;
+	.header {
+		font-size: var(--title0);
+
+		@include smaller-than('medium') {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.block-content {
+		@include bigger-than('large') {
+			padding-top: 6rem;
+		}
+		// padding-bottom: 4rem;
+	}
+	.sideline {
+
+		@include bigger-than('medium') {
+			display: flex;
+
+			> :nth-child(1) {
+				width: 50%;
+			}
+			> :nth-child(2) {
+				width: 50%;
+			}
+		}
+
+		&:before {
+			background: $bright-purple;
+			top: 0; // 1rem; // 3rem;
+			bottom: 0; // 3rem;
+			left: -1.5rem;
+
+			@include bigger-than('medium') {
+				left: -2.5rem;
+			}
+			@include bigger-than('large') {
+				left: -3.5rem;
+			}
+			@include bigger-than('xl') {
+				left: -6rem;
+			}
+		}
+	}
+}

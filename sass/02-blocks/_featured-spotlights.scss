@@ -1,0 +1,228 @@
+@use '../00-setup' as *;
+
+.featured-spotlights {
+	background-color: $almost-black;
+	padding: 4rem 0 1.5rem;
+	position: relative;
+
+	&, p, li {
+		color: $white;
+	}
+
+	&--bg {
+		display: block;
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		width: 100%; height: 100%;
+		z-index: 0;
+		@include bigger-than('xl') {
+			// height: 552px;
+		}
+	}
+
+	@include bigger-than('xl') {
+		position: relative;
+
+		&:after {
+			display: block;
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: $white;
+			z-index: 0;
+			height: 50%;
+		}
+
+	}
+
+	&.sideline:before {
+		z-index: 1;
+		opacity: 0.2;
+	}
+
+	.block-content {
+		position: relative;
+		z-index: 1;
+		@include bigger-than('medium') {
+			padding-left: 7.5rem;
+			padding-right: 7.5rem;
+			padding-bottom: 2rem;
+		}
+		@include bigger-than('large') {
+			padding-left: var(--rails);
+			padding-right: var(--rails);
+		}
+
+		@include bigger-than('xl') {
+			&:after {
+				position: absolute;
+				width: 1px;
+				height: calc(50% + 5rem);
+				background: $ui-gray;
+				top: calc(50% + 1rem);
+				left: 3.5rem;
+				display: block;
+				content: "";
+			}
+		}
+
+		> .header {
+			color: $white;
+			font-size: var(--title2);
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&--content {
+		margin-bottom: 4rem;
+		font-size: 1.25rem;
+	}
+
+	&--row {
+
+		@include bigger-than('medium') {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+
+		@include bigger-than('large') {
+			display: flex;
+			justify-content: space-between;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		@include bigger-than('xl') {
+			padding-left: 3.75rem;
+			padding-right: 3.75rem;
+		}
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			@include bigger-than('large') {
+				// display: block;
+				width: calc(33.333% - 1.25rem);
+				max-width: 320px;
+			}
+
+			@include bigger-than('xl') {
+				// display: block;
+				width: calc(33.333% - 2.75rem);
+			}
+
+			.card {
+				position: relative;
+				z-index: 2;
+				p, li {
+					color: $dark-gray;
+				}
+				@include bigger-than('medium') {
+					display: flex;
+					flex-direction: row;
+					width: 100%;
+
+					.card-frame {
+						width: calc(100% - 219px);
+					}
+
+					img {
+						width: 219px;
+						height: 248px;
+						@include bigger-than('large') {
+							min-height: 296px;
+							// height: auto;
+						}
+						@include bigger-than('xl') {
+							min-height: 360px;
+							// height: auto;
+						}
+					}
+
+
+				}
+				@include bigger-than('large') {
+					flex-direction: column;
+					align-items: center;
+					flex-grow: 1;
+					.card-frame, img {
+						width: 100%;
+					}
+				}
+				@include bigger-than('xl') {
+					+ a {
+						background: $white;
+						border-color: $black;
+						color: $black;
+					}
+					.card-frame {
+						border: 1px solid $ui-gray;
+						border-top: none;
+						height: 100%;
+						border-radius: 0.5rem;
+					}
+				}
+			}
+
+			.button {
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 4rem;
+				border: 1px solid $white;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+	}
+
+	.card {
+		background-color: $white;
+		padding: 0;
+		overflow: hidden;
+		border-radius: 0.5rem;
+		margin-bottom: 2rem;
+
+		h3 {
+			color: $black;
+			margin-bottom: 0.5rem;
+
+			+ p {
+				font-weight: 600;
+				color: $dark-gray;
+				margin-bottom: 1rem;
+			}
+		}
+
+		&:after {
+			display: none;
+		}
+
+		&-image {
+			margin-bottom: unset;
+		}
+
+		&-frame {
+			padding: 1.5rem;
+		}
+
+		&-cta-label {
+			position: relative;
+			@include bigger-than('medium') {
+				position: absolute;
+				bottom: 1rem;
+				right: 1rem;
+				svg {
+					width: 2rem;
+					height: 2rem;
+				}
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+}

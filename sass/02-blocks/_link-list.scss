@@ -1,0 +1,40 @@
+@use '../00-setup' as *;
+
+.link-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	h2.header {
+		font-size: var(--title1);
+		margin-bottom: 2rem;
+
+		@include bigger-than('medium') {
+			// margin-bottom: 4rem;
+		}
+
+		@include bigger-than('large') {
+			max-width: var(--content-w);
+		}
+	}
+
+	.intro {
+		margin-bottom: 3rem;
+
+		@include bigger-than('medium') {
+			margin-bottom: 4rem;
+		}
+
+		@include bigger-than('large') {
+			max-width: var(--content-w);
+		}
+	}
+
+	li:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	@include bigger-than('medium') {
+		font-size: 1.25rem;
+	}
+}

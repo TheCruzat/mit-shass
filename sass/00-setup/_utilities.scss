@@ -1,0 +1,22 @@
+@use "sass:math";
+
+// Scaling
+$scale-unit: 16 !default;
+$html-font-size: 62.5%;
+$body-font-size: 16px;
+
+@function rem($value, $scale: $scale-unit) {
+  $root: $scale;
+  $val: parseInt($value);
+  $return: ();
+
+  @if unit($value)=="px" {
+    $return: append($return, (math.div($val, $root) + rem));
+  }
+
+  @else {
+    $return: append($return, ($val * $root + px));
+  }
+
+  @return $return;
+}

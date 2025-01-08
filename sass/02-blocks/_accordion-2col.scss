@@ -1,0 +1,142 @@
+@use '../00-setup' as *;
+
+.accordion-2col {
+
+	.accordion-frame {
+
+		@include bigger-than('large') {
+			// columns: 2;
+			// column-gap: 4rem;
+			display: flex;
+			justify-content: space-between;
+
+			.accordion-column {
+				width: calc(50% - 2rem);
+			}
+		}
+
+		.accordion-column {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		&.links {
+			.accordion-item.open-drawer {
+				.accordion-content {
+					display: block; // max-height: 52px;
+				}
+			}
+
+			.accordion-content {
+				span.link-wrap:not(:last-of-type) {
+					display: inline-block;
+					margin-right: 1.25rem;
+					border-right: 1px solid $ui-gray;
+					position: relative;
+					padding-right: 1.25rem;
+
+				}
+			}
+		}
+
+	}
+
+	.accordion-item {
+		// padding: 2rem 1.25rem;
+		border-top: 1px solid $ui-gray;
+		border-bottom: 1px solid $ui-gray;
+		margin-bottom: -1px;
+		position: relative;
+		color: $dark-gray;
+		font-size: var(--copyLarge);
+		position: relative;
+		z-index: 1;
+
+		h3.header {
+			padding: 2rem 1.25rem;
+			position: relative;
+			z-index: 1;
+			cursor: pointer;
+
+			span {
+				display: inline-block;
+				padding-right: 3rem;
+				line-height: 1.4;
+			}
+		}
+
+		&--content {
+			margin-bottom: 1rem;
+		}
+
+		&--meta {
+			margin-bottom: 2rem;
+
+			span {
+				font-weight: 600;
+			}
+		}
+
+		&:after {
+			display: block;
+			content: "";
+			width: 24px;
+			height: 24px;
+			background: url('../icons/chevron-south.svg') 50% 50% no-repeat;
+			position: absolute;
+			right: 1rem;
+			top: 2rem; // calc(2rem + 12px); // calc(50% - 12px);
+			transition: transform $trans-in; // out
+			z-index: 0;
+		}
+	}
+
+	.accordion-item.open-drawer {
+		.accordion-content {
+			display: block;
+		}
+		&:after {
+			transform: rotate(180deg);
+			// transition: transform $trans-in;
+		}
+	}
+
+	.accordion-content {
+		display: none;
+		overflow: hidden;
+		transition: max-height $trans-in;
+		&--padding {
+			padding: 0 1.25rem 2rem;
+		}
+
+		&--spacer {
+			display: block;
+			content: "";
+			width: 100%;
+			margin-bottom: 1.75rem;
+		}
+	}
+
+	h2.header {
+		font-size: var(--title1);
+			margin-bottom: 3rem;
+
+			@include bigger-than('medium') {
+				margin-bottom: 4.5rem;
+			}
+
+			@include bigger-than('large') {
+				margin-bottom: 6rem;
+			}
+	}
+	h3.header {
+		font-size: var(--copyLarger);
+		// margin-bottom: 1.75rem;
+
+		@include bigger-than('medium') {
+			// font-size: var(--title2);
+			// margin-bottom: 4.5rem;
+		}
+	}
+}

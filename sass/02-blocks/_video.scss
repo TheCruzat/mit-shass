@@ -1,0 +1,52 @@
+@use '../00-setup' as *;
+
+.video {
+	position: relative;
+	height: 500px;
+	display: flex;
+	width: 100%;
+	align-items: flex-end;
+
+	.block-content {
+
+		padding: 1.5rem 3rem 0.75rem;
+		position: relative;
+		z-index: 2;
+		background: $white;
+		display: inline-block;
+		overflow: hidden;
+		border-radius: 0 0.5rem 0 0;
+		color: $dark-gray;
+		margin-right: 1.5rem;
+
+		@include bigger-than('medium') {
+			padding-left: calc(#{var(--rails)} - 1rem);
+		}
+
+		@include bigger-than('large') {
+			max-width: 75%;
+			padding-left: var(--rails);
+		}
+
+		.header {
+			font-size: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+	}
+
+	&--cover {
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		z-index: 0;
+	}
+
+	.face-plate {
+		z-index: 1;
+		svg {
+			bottom: auto;
+			top: calc(50% - 35px);
+			left: calc(50% - 35px);
+		}
+	}
+}

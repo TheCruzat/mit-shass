@@ -1,0 +1,147 @@
+
+// breakpoints
+
+$bp-sm:		460px;
+$bp-md:		800px;
+$bp-lg:		1050px;
+$bp-xl:		1440px;
+
+
+// mq sensitive variables
+
+:root {
+
+	// header height
+		--headH: 60px;
+
+		@media (min-width: $bp-lg) {
+			--headH: 86px;
+		}
+
+	// global padding
+		--rails: 3rem;
+
+		@media (min-width: $bp-md) {
+			--rails: 7rem;
+		}
+
+		@media (min-width: $bp-xl) {
+			--rails: 9.5rem;
+		}
+
+	// vertical spacers
+		--row-gap: 3rem;
+		@media (min-width: $bp-lg) {
+			--row-gap: 4.25rem;
+		}
+		@media (min-width: $bp-xl) {
+			--row-gap: 6rem;
+		}
+
+	// content + sidebar
+		@media (min-width: $bp-lg) {
+		--content-w: 55%;
+		--sidebar-w: calc(45% - 4rem);
+		}
+		@media (min-width: $bp-xl) {
+		--content-w: 55%;
+		--sidebar-w: calc(45% - 6rem);
+		}
+}
+
+
+// transitions
+
+$trans-in: 	0.15s ease-out;
+$trans-out: 0.5s ease-in;
+
+
+// New colors
+$dull-purple: #3E006B;
+$bright-purple: #9933FF;
+
+
+// Colors from Provost / IR
+
+// 1 Basic Colors
+$white: #fff;
+$black: #000;
+$off-white: #f0f0f0;
+$off-black: #333;
+
+$almost-black: #0D0009;
+
+$light-gray: #F5F5F5;
+$almost-gray: #d6d0d3;
+$medium-gray: #ADADAD;
+$gray: #757575;
+$dark-gray: #595959;
+$darkest-gray: #444;
+$ui-gray: #dddDDD;
+$search-gray: #959595;
+$wp-gray: #c3c4c7;
+
+$blue:    #0d6efd;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+
+// 2 Brand Colors
+$go-green: #27ae60;
+$racing-green: #0F4324;
+$emerald: #2DC86B;
+
+$charcoal: #34495e;
+$blue-yonder: #577A9E;
+$gunmetal: #1D2935;
+
+$magenta: #ED009B;
+$magenta-text: #E10093;
+$magenta-highlight: rgba(237, 0, 155, 0.15);
+
+// 3 Other Brand Colors
+$facebook-color: #3b5998;
+$twitter-color: #1da1f2;
+$youtube-color: #ff0000;
+$instagram-color: #833ab4;
+$linkedin-color: #2867B2;
+$tumblr-color: #32506d;
+$reddit-color: #ff4500;
+$vimeo-color: #1ab7ea;
+$slack-color: #4a154b;
+$flickr-color: #ff0084;
+$pinterest-color: #cb2027;
+$github-color: #4183c4;
+$feedburner-color: #ef6421;
+$vine-color: #00b489;
+$pocket-color: #ee4056;
+$twitch-color: #9146ff;
+$amazon-color: #FF9900;
+$spotify-color: #1ed760;
+$deviantart-color: #42704f;
+$steam-color: #171A21;
+$discord-color: #5865f2;
+$tacobell-color: #702082;
+$email-color: #7d7d7d;
+
+// 4 Defaults
+$primary: $magenta !default;
+$secondary: $yellow !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$disabled: $gray !default;
+
+$page-background: $white !default;
+$text-color: $dark-gray !default;
+$light-text-color: $white !default;
+$dark-text-color: $text-color !default;
+$dark-bg: $black !default;
+$hr-color: $light-gray !default;

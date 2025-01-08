@@ -1,0 +1,158 @@
+@use '../00-setup' as *;
+
+.faq-accordion {
+	h2.header {
+		font-size: var(--title1);
+		margin-bottom: 2rem;
+
+		@include bigger-than('large') {
+			margin-bottom: 4rem;
+		}
+	}
+	h3.header {
+		font-size: var(--header2);
+		margin-bottom: 2rem;
+	}
+
+	.intro {
+		font-size: var(--copyLarge);
+		line-height: 1.6;
+		color: $dark-gray;
+		margin-bottom: 1.75rem;
+
+		p:not(:last-of-type) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.faq-head {
+		@include bigger-than('large') {
+			width: var(--content-w);
+		}
+		.cta {
+			margin-bottom: 4rem;
+		}
+	}
+
+	.faq-expand-all {
+		display: flex;
+		width: 100%;
+		justify-content: flex-end;
+		margin-bottom: 2rem;
+
+		@include bigger-than('large') {
+			padding-right: 25%;
+		}
+
+		.open-all {
+			display: flex;
+			align-items: center;
+			height: 26px;
+
+			span {
+				padding-right: 0.75rem;
+				line-height: 1;
+			}
+
+			&.all-are-open {
+				svg {
+					transform: rotate(180deg);
+					margin-bottom: -2px;
+				}
+			}
+		}
+	}
+
+	.accordion-frame {
+		@include bigger-than('large') {
+			padding-right: 25%;
+		}
+	}
+
+	.faq-acc-set {
+		padding: 2rem 5.5rem 2rem 0rem;
+		border-bottom: 1px solid $ui-gray;
+		position: relative;
+
+		@include bigger-than('medium') {
+			padding: 2rem 7.5rem 2rem 1rem;
+		}
+
+		&:first-child {
+			border-top: 1px solid $ui-gray;
+		}
+
+		.faq-acc-question {
+			font-size: var(--header3);
+
+			@include bigger-than('xl') {
+				font-size: var(--header2);
+			}
+
+			button {
+				text-align: left;
+			}
+		}
+		.faq-acc-answer {
+
+			font-size: 1.125rem;
+			color: $dark-gray;
+			line-height: 1.6;
+			// overflow: hidden;
+			// max-height: 0;
+			display: none;
+
+			&:before {
+				display: block;
+				content: "";
+				margin-bottom: 1rem;
+			}
+		}
+		.faq-acc-trigger {
+			display: block;
+			width: 32px;
+			height: 32px;
+			background: $black;
+			position: absolute;
+			bottom: 1.5rem;
+			right: 1.5rem;
+
+			@include bigger-than('medium') {
+				width: 48px;
+				height: 48px;
+				bottom: 1.5rem;
+			}
+
+			span {
+				display: block;
+				width: 12px;
+				height: 2px;
+				background: $white;
+				position: absolute;
+				top: calc(50% - 1px);
+				left: calc(50% - 6px);
+
+				@include bigger-than('medium') {
+					width: 16px;
+					left: calc(50% - 8px);
+				}
+				// transition: width 0.2s ease-out;
+
+				&:nth-child(2) {
+					transform: rotate(90deg);
+				}
+			}
+		}
+
+		&.open-drawer {
+			.faq-acc-trigger span:nth-child(2) {
+				width: 0px;
+				left: 50%; // calc(50% - 2px);
+			}
+			.faq-acc-answer {
+				// max-height: unset;
+				display: block;
+			}
+		}
+	}
+}

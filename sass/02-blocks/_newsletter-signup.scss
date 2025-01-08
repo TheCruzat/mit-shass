@@ -1,0 +1,111 @@
+@use '../00-setup' as *;
+
+.newsletter-signup {
+
+	position: relative;
+	padding: 0 1.5rem 14rem;
+
+	@include bigger-than('medium') {
+		padding: 0 calc(#{var(--rails)} - 0rem) 2rem calc(#{var(--rails)} - 1rem);
+	}
+	@include bigger-than('large') {
+		padding: 0 var(--rails) 5rem;
+	}
+
+	&-bg {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: 0;
+
+		@include smaller-than('medium') {
+			top: 8rem;
+		}
+	}
+
+	.block-content {
+		background: $white;
+		padding: 2.5rem calc(#{var(--rails)} - 1.5rem) 6rem;
+		// margin-left: 1.5rem;
+		// margin-right: 1.5rem;
+
+		@include smaller-than('medium') {
+			&:before {
+				display: block;
+				width: 1px;
+				height: auto;
+				content: "";
+				background: $ui-gray;
+				top: 0; height: 8rem;
+				left: 0;
+				position: absolute;
+				z-index: 2;
+			}
+		}
+
+		@include bigger-than('medium') {
+			padding: 2.5rem var(--rails) 5.5rem;
+			border-radius: 0 0 0.5rem 0.5rem;
+		}
+
+		@include bigger-than('large') {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+			> div, > form {
+				width: calc(50% - 2.5rem);
+				// flex-grow: 1;
+			}
+		}
+
+		@include bigger-than('xl') {
+			padding-top: 4rem;
+			padding-bottom: 2rem;
+		}
+	}
+
+	.header, .newsletter-content {
+		@include bigger-than('large') {
+			max-width: 520px;
+		}
+	}
+
+	.header {
+		font-size: var(--title2);
+		margin-bottom: 1.25rem;
+	}
+
+	.newsletter-content {
+		font-size: var(--copyLarge);
+		margin-bottom: 1.75rem;
+	}
+
+	.newsletter-cta {
+		margin-bottom: 4rem;
+	}
+
+	label {
+		&, span {
+			display: block;
+		}
+
+		margin-bottom: 1.25rem;
+
+		&:last-of-type {
+			// margin-bottom: 2.5rem;
+		}
+
+		span {
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+
+		input {
+			width: 100%;
+			max-width: 416px;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+{
+    "key": "group_6698420401d44",
+    "title": "CPT - People - Award Year",
+    "fields": [
+        {
+            "key": "field_669842040b734",
+            "label": "Award Year",
+            "name": "award_year",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "people"
+            },
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "people-categories:nobel-laureates"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1721254728
+}

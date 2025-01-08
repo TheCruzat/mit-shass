@@ -1,0 +1,80 @@
+@use '../00-setup' as *;
+
+.page-header {
+	height: 322px;
+	background: $white;
+	display: flex;
+	width: 100%;
+	align-items: flex-end;
+	position: relative;
+
+	@include bigger-than('medium') {
+		height: 224px;
+	}
+
+	@include bigger-than('large') {
+		height: 318px;
+	}
+
+	@include bigger-than('xl') {
+		height: 394px;
+	}
+
+	&--bg {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		width: 100%; height: 100%;
+		z-index: 0;
+
+		@include bigger-than('medium') {
+			top: 0rem; left: 1.5rem; right: 1.5rem;
+			width: calc(100% - 3rem);
+			height: 100%; // calc(100% - 1rem);
+			border-radius: 1rem 1rem 1rem 0;
+		}
+	}
+
+	&.longer-title .header-content {
+		max-width: calc( 100% - ( 2 * #{var(--rails)} ) );
+
+		.header {
+			font-size: var(--title1);
+		}
+	}
+
+	.header-content {
+		background: $white;
+		padding: 1.5rem var(--rails) 0.25rem;
+		border-radius: 0 1rem 0 0;
+		margin-right: 2rem;
+		position: relative;
+		z-index: 1;
+		max-width: calc( #{var(--content-w)} + #{var(--rails)} );
+
+		@include bigger-than('medium') {
+			padding-top: 2.75rem;
+			padding-left: calc(#{var(--rails)} - 1rem);
+		}
+		@include bigger-than('large') {
+			padding-left: var(--rails);
+		}
+		@include bigger-than('xl') {
+			padding-left: 7rem; padding-right: 7rem;
+		}
+
+
+		.header {
+			font-size: var(--title0);
+		}
+
+		.eyebrow {
+			color: $bright-purple;
+			margin-bottom: 1rem;
+
+			a {
+				color: $bright-purple;
+				text-decoration: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,180 @@
+@use '../00-setup' as *;
+
+.tab-set {
+
+	display: flex;
+	margin-bottom: 3rem;
+
+	overflow: auto;
+	white-space: nowrap;
+
+	@include smaller-than('medium') {
+		margin-right: -3rem;
+		padding-right: 3rem;
+	}
+
+	.header {
+		font-size: var(--header3);
+		padding: 0.75rem 0;
+		cursor: pointer;
+
+		@include smaller-than('medium') {
+			font-size: 1.25rem;
+		}
+
+		&:not(:last-of-type) {
+			margin-right: 1.75rem;
+
+			@include bigger-than('medium') {
+				margin-right: 4rem;
+			}
+		}
+
+		&.sel {
+			border-bottom: 5px solid $bright-purple;
+		}
+	}
+
+	.home-tabs & {
+
+	}
+}
+
+.tab-frame {
+
+	&:not(:first-child) {
+		display: none;
+	}
+
+	.home-tabs & {
+		.card {
+			&-image {
+				@include smaller-than('medium') {
+					margin-left: -3rem;
+					width: calc(100% + 3rem);
+					max-width: unset;
+				}
+			}
+		}
+	}
+	.home-tabs &[data-type="regular"],
+	.home-tabs &[data-type="events"] {
+		@include bigger-than('xl') {
+			.tab-cards {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 4rem;
+
+				.card {
+					.card-frame {
+						padding: 1.5rem;
+					}
+				}
+			}
+			.tab-cards--prime {
+				> .card {
+					.card-image {
+						border-radius: 0.5rem 0.5rem 0 0;
+					}
+					.card-frame {
+						//border-radius: 0.5rem 0.5rem 0 0
+						border: 1px solid $ui-gray;
+						padding: 2rem 1.5rem 1.5rem;
+					}
+					.card-content {
+						font-size: 1.25rem;
+					}
+				}
+			}
+			.tab-cards--more {
+				> .card {
+					display: flex;
+					margin-bottom: 1.5rem;
+					.card-image {
+						width: 194px;
+						min-height: 190px;
+						height: auto;
+						border-radius: 0.5rem 0 0 0.5rem;
+					}
+					.card-frame {
+						width: calc(100% - 194px);
+						border: 1px solid $ui-gray;
+						border-left: none;
+						border-radius: 0 0.5rem 0.5rem 0;
+					}
+					.card-content {
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+	&[data-type="large"] {
+		@include bigger-than('medium') {
+			.tab-cards--prime {
+				> .card {
+					h3 {
+						font-size: 2rem;
+					}
+				}
+			}
+			.card-content {
+				font-size: 1.25rem;
+			}
+		}
+		@include bigger-than('xl') {
+			// display: none;
+			.tab-cards--prime {
+				> .card {
+					display: grid;
+					grid-template-columns: repeat(12, 1fr);
+					gap: 3rem;
+					width: 100%;
+
+					.card-image {
+						grid-column-start: span 7;
+					}
+
+					.card-frame {
+						grid-column-start: span 5;
+					}
+
+					h3 {
+						font-size: 3rem;
+					}
+				}
+				margin-bottom: 1.5rem;
+			}
+			.tab-cards--more {
+				display: flex;
+				justify-content: space-between;
+
+				> .card {
+					display: block;
+					width: calc(50% - 0.75rem);
+
+					h3 {
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+.home-tabs {
+
+	border-top: 1px solid $ui-gray;
+	overflow: hidden;
+
+	.intro {
+		font-size: var(--copyLarge);
+		margin-bottom: 2rem;
+
+		+ .button {
+			@include bigger-than('medium') {
+				margin-bottom: 6rem;
+			}
+		}
+	}
+}

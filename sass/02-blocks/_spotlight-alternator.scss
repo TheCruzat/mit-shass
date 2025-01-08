@@ -1,0 +1,125 @@
+@use '../00-setup' as *;
+
+.spotlight-alternator {
+
+	//.block-content {
+		max-width: calc(1295px + ( #{var(--rails)} * 2 ));
+	//}
+
+	h2 {
+		font-size: 2rem;
+
+		&.lead {
+			margin-bottom: 2.25rem;
+			font-size: var(--title1);
+		}
+
+		&:not(.lead) {
+			margin-bottom: 1.5rem;
+		}
+	}
+	.eyebrow {
+		color: $bright-purple;
+		font-size: 0.875rem;
+		margin-bottom: 0.75rem;
+	}
+
+	img {
+		max-width: 400px;
+		height: 262px;
+		object-fit: cover;
+		width: 100%;
+		border-radius: 0.5rem;
+		overflow: hidden;
+
+		@include bigger-than('xl') {
+			width: 634px;
+			height: 416px;
+			max-width: unset;
+		}
+	}
+
+	&--lead-link {
+		margin-bottom: 3rem;
+	}
+
+	.card {
+		max-width: 400px;
+
+		@include bigger-than('large') {
+			max-width: 100%;
+			// display: grid;
+			// grid-template-columns: repeat(2, 1fr);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+
+			padding-bottom: 4.5rem;
+
+			&:not(:last-of-type) {
+				margin-bottom: 4.5rem;
+			}
+			&:nth-child(odd) {
+				img {
+					margin-right: 2rem;
+					@include bigger-than('large') {
+						margin-right: 4rem;
+					}
+				}
+			}
+			&:nth-child(even) {
+				flex-direction: row-reverse;
+				.card-frame {
+					margin-right: 2rem;
+					@include bigger-than('large') {
+						margin-right: 4rem;
+					}
+				}
+			}
+		}
+
+		&-image {
+			margin-bottom: 1.5rem;
+			@include bigger-than('large') {
+				flex-grow: 2;
+			}
+		}
+
+		&-frame {
+			@include bigger-than('large') {
+				max-width: 50%;
+			}
+			@include bigger-than('xl') {
+				max-width: 41.5%;
+			}
+			.sub-header p {
+				font-weight: 600;
+				margin-bottom: 1.875rem;
+				color: $black;
+
+				@include bigger-than('large') {
+					font-size: 1.25rem;
+				}
+			}
+		}
+
+		&-content {
+			margin-bottom: 1.875rem;
+			line-height: 1.8;
+			font-size: var(--copyLarge);
+
+			@include bigger-than('large') {
+				line-height: 1.5;
+			}
+		}
+
+		&-cta-label {
+			margin-bottom: 4rem;
+
+			@include bigger-than('large') {
+				margin-bottom: 0rem;
+			}
+		}
+	}
+}

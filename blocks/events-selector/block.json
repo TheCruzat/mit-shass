@@ -1,0 +1,39 @@
+{
+  "name": "shass/events-selector",
+  "title": "Events Selector",
+  "description": "",
+  "style": "",
+  "script": "",
+  "category": "shass_page_blocks",
+  "icon": {
+    "background": "#fff",
+    "foreground": "#000",
+    "src": "superhero-alt"
+  },
+  "apiVersion": 2,
+  "keywords": ["shass", "mit"],
+  "acf": {
+    "mode": "edit",
+    "renderTemplate": "render.php"
+  },
+  "styles": [],
+  "supports": {
+    "align": ["full"],
+    "anchor": false,
+    "alignContent": false,
+    "color": {
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "alignText": false,
+    "fullHeight": false,
+    "multiple": false
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}
